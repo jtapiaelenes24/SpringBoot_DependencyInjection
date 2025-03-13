@@ -3,12 +3,21 @@ package com.jt24.springboot.di.app.springboot_di.repositories;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
+// import org.springframework.web.context.annotation.RequestScope;
+// import org.springframework.web.context.annotation.SessionScope;
+
 import com.jt24.springboot.di.app.springboot_di.models.Product;
 
-public class ProductRepositoryImplementation implements ProductRepository {
+// @RequestScope
+// @SessionScope
+@Primary
+@Repository("productList")
+public class ProductRepositoryImpl implements ProductRepository {
     private List<Product> data;
 
-    public ProductRepositoryImplementation() {
+    public ProductRepositoryImpl() {
         this.data = Arrays.asList(
                 new Product(1L, "CocaCola", 2L),
                 new Product(2L, "Fanta", 3L),
